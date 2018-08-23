@@ -37,21 +37,22 @@ export class AppComponent {
   handle = () => {
     const headers = new Headers();
     // headers.append('Access-Control-Allow-Origin', '*');
-    headers.append('Content-Type', 'application/json');
-    headers.append('Accept', 'application/vnd.piksel+json');
+    headers.append('Access-Control-Allow-Origin', '*');
+    // headers.append('Content-Type', 'application/json');
+    // headers.append('Accept', 'application/vnd.piksel+json');
 
     const myInit = {
       headers,
-      mode: 'cors',
+      // mode: 'cors',
       method: 'GET',
-      cache: 'default'
+      // cache: 'default'
     };
 
     var myRequest = new Request(this.configUrl, myInit);
 
-    window.fetch(myRequest);
-      // .then(response => response.text())
-      // .then(result => console.log('result', result));
+    window.fetch(myRequest)
+      .then(response => console.log('result', response))
+      .catch(error => console.log('error', error));
 
   }
 
